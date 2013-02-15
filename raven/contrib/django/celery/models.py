@@ -9,6 +9,7 @@ raven.contrib.django.celery.models
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
-if 'djcelery' not in settings.INSTALLED_APPS:
-    raise ImproperlyConfigured("Put 'djcelery' in your "
+if not any(app in settings.INSTALLED_APPS
+           for app in ('djcelery', 'djcelery_email')):
+    raise ImproperlyConfigured("Put 'djcelery' or 'djcelery_email' in your "
         "INSTALLED_APPS setting in order to use the sentry celery client.")

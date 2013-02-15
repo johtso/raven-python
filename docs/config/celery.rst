@@ -7,4 +7,4 @@ Celery provides a hook for catching task failures, and Raven can easily plug int
 
     register_signal(client)
 
-If you're using Django and ``djcelery`` exists in your ``INSTALLED_APPS``, we've already set this up for you.
+If you're using Django and ``djcelery`` or ``djcelery_email`` exist in your ``INSTALLED_APPS``, we've already set this up for you.

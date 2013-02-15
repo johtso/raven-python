@@ -180,7 +180,8 @@ def register_handlers():
     got_request_exception.connect(exception_handler, weak=False)
 
     # If Celery is installed, register a signal handler
-    if 'djcelery' in django_settings.INSTALLED_APPS:
+    if ('djcelery' in django_settings.INSTALLED_APPS
+        or 'djcelery_email' in django_settings.INSTALLED_APPS):
         from raven.contrib.celery import register_signal, register_logger_signal
 
         try:
